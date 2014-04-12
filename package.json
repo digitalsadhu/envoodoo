@@ -1,0 +1,37 @@
+{
+  "name": "envoodoo",
+  "version": "0.0.0",
+  "description": "Environment variable loader",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha --reporter spec test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/digitalsadhu/envoodoo.git"
+  },
+  "keywords": [
+    "env",
+    "ENV",
+    "process.env",
+    "config",
+    "configuration",
+    "environment",
+    "variables"
+  ],
+  "author": "digitalsadhu <digitalsadhu@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/digitalsadhu/envoodoo/issues"
+  },
+  "homepage": "https://github.com/digitalsadhu/envoodoo",
+  "dependencies": {
+    "env-parser": "0.1.0",
+    "env-writer": "0.1.1",
+    "env-reader": "0.1.0"
+  },
+  "devDependencies": {
+    "chai": "~1.9.1",
+    "mocha": "~1.18.2"
+  }
+}

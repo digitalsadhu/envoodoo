@@ -1,6 +1,6 @@
 {
   "name": "envoodoo",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Environment variable loader",
   "main": "index.js",
   "scripts": {

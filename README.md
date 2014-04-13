@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/digitalsadhu/envoodoo.svg?branch=master)](https://travis-ci.org/digitalsadhu/envoodoo)
 
+[![Coverage Status](https://coveralls.io/repos/digitalsadhu/admittance/badge.png?branch=master)](https://coveralls.io/r/digitalsadhu/admittance?branch=master)
+
 [![NPM](https://nodei.co/npm/envoodoo.png)](https://nodei.co/npm/envoodoo/)
 
 envoodoo

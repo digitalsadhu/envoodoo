@@ -7,3 +7,4 @@ node_js:
 script:
   - npm run jshint
   - npm test
+after_success: npm run coveralls

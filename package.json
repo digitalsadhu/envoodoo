@@ -6,7 +6,8 @@
   "scripts": {
     "test": "node_modules/.bin/mocha --reporter spec test",
     "jshint": "node_modules/.bin/jshint .",
-    "istanbul": "./scripts/istanbul.sh"
+    "istanbul": "./scripts/istanbul.sh",
+    "coveralls": "./scripts/coveralls.sh"
   },
   "repository": {
     "type": "git",
@@ -36,6 +37,7 @@
     "chai": "~1.9.1",
     "mocha": "~1.18.2",
     "jshint": "~2.5.0",
-    "istanbul": "~0.2.7"
+    "istanbul": "~0.2.7",
+    "coveralls": "~2.10.0"
   }
 }

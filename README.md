@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/digitalsadhu/envoodoo.svg?branch=master)](https://travis-ci.org/digitalsadhu/envoodoo)
+
 envoodoo
 ========
 

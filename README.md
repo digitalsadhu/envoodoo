@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/digitalsadhu/envoodoo.svg?branch=master)](https://travis-ci.org/digitalsadhu/envoodoo)
 
+[![NPM](https://nodei.co/npm/envoodoo.png)](https://nodei.co/npm/envoodoo/)
+
 envoodoo
 ========
 

@@ -31,7 +31,7 @@
   "dependencies": {
     "env-parser": "0.1.0",
     "env-writer": "1.0.0",
-    "env-reader": "0.1.0"
+    "env-reader": "0.2.0"
   },
   "devDependencies": {
     "chai": "~1.9.1",

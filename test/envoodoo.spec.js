@@ -23,6 +23,11 @@ describe('envoodoo module', function () {
       expect(envoodoo('some/fake/path')).to.equal(false)
     })
 
+    it('handles removal of the exports keyword', function () {
+      envoodoo(__dirname + '/.env-test')
+      expect(process.env.EXPORTED_VAR).to.equal('absolutely')
+    })
+
   })
 
 })

@@ -54,7 +54,7 @@ However, note the following:
 - KEY='VALUE' is acceptable
 - KEY="VALUE" is acceptable
 - export KEY=VALUE is also acceptable, envoodoo will strip the export from the start
-- # comments using a hash - are acceptable and will be ignored by envoodoo
+- comments using a hash (#) - are acceptable and will be ignored by envoodoo
 - empty lines - are acceptable and will be ignored by envoodoo
 
 #### Example .env file

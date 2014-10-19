@@ -21,6 +21,8 @@ any other files you might wish to load environment variables from.
 
 ## Usage
 
+### Basic usage examples
+
 Loading a .env file in the root of the project
 
 ```js
@@ -41,4 +43,43 @@ var envoodoo = require('envoodoo')
 envoodoo() //loads default .env
 envoodoo('path/to/file1')
 envoodoo('path/to/file2')
+```
+
+### .env files
+
+envoodoo generally handles simple KEY=VALUE .env files.
+
+However, note the following:
+
+- KEY='VALUE' is acceptable
+- KEY="VALUE" is acceptable
+- export KEY=VALUE is also acceptable, envoodoo will strip the export from the start
+- # comments using a hash - are acceptable and will be ignored by envoodoo
+- empty lines - are acceptable and will be ignored by envoodoo
+
+#### Example .env file
+
+```
+# My .env file
+
+# user information
+NAME=bob
+AGE=31
+
+# using export keyword
+export ANIMAL=cat
+
+# crazy key strings with weird characters
+KEY1='12@3$%^asd'
+KEY2="12@3$%^asd"
+```
+
+If this file were to be loaded with envoodoo, then:
+
+```
+process.env.NAME   === 'bob'
+process.env.AGE    === '31'
+process.env.ANIMAL === 'cat'
+process.env.KEY1   === '12@3$%^asd'
+process.env.KEY2   === '12@3$%^asd'
 ```

@@ -6,19 +6,38 @@ var fs        = require('fs')
   , envWriter = require('env-writer')()
   , envData
 
-module.exports = function (envFile) {
-
-  if (typeof envFile === 'undefined')
-    envFile = '.env'
-
-  try {
-    envData = fs.readFileSync(envFile)
-  } catch(e) {
-    return false
+module.exports = function (envFile, callback) {
+  if (typeof envFile === 'function') {
+    callback = envFile;
+    envFile = undefined;
   }
 
-  envReader.pipe(envParser).pipe(envWriter)
+  if (typeof envFile === 'undefined')
+    envFile = '.env';
 
-  envReader.write(envData)
+  if (!callback) {
+    try {
+      envData = fs.readFileSync(envFile);
+    } catch(e) {
+      return false;
+    }
 
+    envReader.pipe(envParser).pipe(envWriter);
+    envReader.write(envData);
+  } else {
+    // supress warning on test
+    envReader.removeAllListeners();
+    envParser.removeAllListeners();
+
+    fs.createReadStream(envFile)
+      .on('error', function(e) {
+        return callback.call(null, e);
+      })
+      .on('end', function() {
+        return callback.call(null);
+      })
+      .pipe(envReader)
+      .pipe(envParser)
+      .pipe(envWriter);
+  }
 }

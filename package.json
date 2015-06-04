@@ -1,5 +1,5 @@
 {
-  "name": "@rbudiharso/envoodoo",
+  "name": "envoodoo",
   "version": "2.1.0",
   "description": "Environment variable loader",
   "main": "index.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/rbudiharso/envoodoo.git"
+    "url": "git://github.com/digitalsadhu/envoodoo.git"
   },
   "keywords": [
     "env",
@@ -22,12 +22,12 @@
     "environment",
     "variables"
   ],
-  "author": "Rahmat Budiharso <rbudiharso@gmail.com>",
+  "author": "Richard Walker <digitalsadhu@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rbudiharso/envoodoo/issues"
+    "url": "https://github.com/digitalsadhu/envoodoo/issues"
   },
-  "homepage": "https://github.com/rbudiharso/envoodoo",
+  "homepage": "https://github.com/digitalsadhu/envoodoo",
   "dependencies": {
     "env-parser": "1.0.0",
     "env-writer": "2.0.0",

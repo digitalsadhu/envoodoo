@@ -6,19 +6,31 @@ var fs        = require('fs')
   , envWriter = require('env-writer')()
   , envData
 
-module.exports = function (envFile) {
-
-  if (typeof envFile === 'undefined')
-    envFile = '.env'
-
-  try {
-    envData = fs.readFileSync(envFile)
-  } catch(e) {
-    return false
+module.exports = function (envFile, callback) {
+  if (typeof envFile === 'function') {
+    callback = envFile;
+    envFile = undefined;
   }
 
-  envReader.pipe(envParser).pipe(envWriter)
+  if (!callback) {
+    callback = function() { /* noop */ }
+  }
 
-  envReader.write(envData)
+  if (typeof envFile === 'undefined')
+    envFile = '.env';
 
+  try {
+    envData = fs.readFileSync(envFile);
+  } catch(e) {
+    callback(e);
+    return false;
+  }
+
+  envReader.pipe(envParser).pipe(envWriter);
+  envReader.write(envData);
+
+  envReader.on('end', callback);
+  envReader.removeAllListeners();
+  envWriter.removeAllListeners();
+  envParser.removeAllListeners();
 }

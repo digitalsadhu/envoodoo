@@ -34,6 +34,10 @@ Loading a file somewhere else
 ```js
 var envoodoo = require('envoodoo')
 envoodoo('path/to/.env')
+// or
+envoodoo('path/to/.env', function(err) {
+  // do something
+})
 ```
 
 Loading multiple files

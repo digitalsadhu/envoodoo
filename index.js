@@ -12,25 +12,32 @@ module.exports = function (envFile, callback) {
     envFile = undefined;
   }
 
-  if (!callback) {
-    callback = function() { /* noop */ }
-  }
-
   if (typeof envFile === 'undefined')
     envFile = '.env';
 
-  try {
-    envData = fs.readFileSync(envFile);
-  } catch(e) {
-    callback(e);
-    return false;
+  if (!callback) {
+    try {
+      envData = fs.readFileSync(envFile);
+    } catch(e) {
+      return false;
+    }
+
+    envReader.pipe(envParser).pipe(envWriter);
+    envReader.write(envData);
+  } else {
+    // supress warning on test
+    envReader.removeAllListeners();
+    envParser.removeAllListeners();
+
+    fs.createReadStream(envFile)
+      .on('error', function(e) {
+        return callback.call(null, e);
+      })
+      .on('end', function() {
+        return callback.call(null);
+      })
+      .pipe(envReader)
+      .pipe(envParser)
+      .pipe(envWriter);
   }
-
-  envReader.pipe(envParser).pipe(envWriter);
-  envReader.write(envData);
-
-  envReader.on('end', callback);
-  envReader.removeAllListeners();
-  envWriter.removeAllListeners();
-  envParser.removeAllListeners();
 }

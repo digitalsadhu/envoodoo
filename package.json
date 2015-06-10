@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/digitalsadhu/envoodoo",
   "dependencies": {
-    "env-parser": "1.0.0",
+    "env-parser": "1.0.1",
     "env-writer": "2.0.0",
     "env-reader": "1.0.0"
   },
